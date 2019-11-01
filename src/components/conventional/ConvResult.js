@@ -4,15 +4,11 @@ import moment from "moment";
 import Moment from "react-moment";
 
 function addDays(date, days) {
-  console.log("date", date, "days", days);
-  if (parseInt(date.slice(0, 4)) < 2018) {
-    return "";
-  } else return moment(date).add(days, "days");
-  // var result = new Date(date);
-  // result.setDate(result.getDate() + days);
-  // console.log(result);
-  // return result;
-}
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  console.log(result);
+  return result;
+// }
 
 const ConvResult = props => {
   console.log("result", { props });
