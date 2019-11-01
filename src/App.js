@@ -1,20 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
-import Homepage from "./components/Homepage";
+import Homepage from "./components/homepage/Homepage";
+import TopNav from "./components/TopNav";
+import Conv from "./components/conventional/Conv";
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Grid.Column>
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/calc" component={Homepage} />
-            </Switch>
-          </Grid.Column>
-        </div>
+        <TopNav />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/conv" component={Conv} />
+        </Switch>
       </Router>
     );
   }

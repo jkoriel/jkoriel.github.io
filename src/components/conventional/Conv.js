@@ -4,18 +4,35 @@ import ConvForm from "./ConvForm";
 import ConvResult from "./ConvResult";
 
 class Conv extends React.Component {
-  state = {};
+  state = {
+    closingDate: "",
+    borrowerPaystubs: "",
+    les: "",
+    creditReport: "",
+    bankStatement: "",
+    appraisal: "",
+    titleCommitment: "",
+    voe: "",
+    thirdPartyVoe: "",
+    selfEmployedVoe: "",
+    voi: ""
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
       <Grid>
         <Grid.Column width="4">
           <Container>
-            <ConvForm />
+            <ConvForm dates={this.state} handleChange={this.handleChange} />
           </Container>
         </Grid.Column>
         <Grid.Column width="4">
           <Container>
-            <ConvResult />
+            <ConvResult dates={this.state} />
           </Container>
         </Grid.Column>
       </Grid>
