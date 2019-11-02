@@ -8,7 +8,7 @@ class TopNav extends Component {
     return (
       <Menu inverted size="large" style={{ backgroundColor: "#0C2136" }}>
         <Link to={"/"}>
-          <Image src={Logo} size="tiny" />
+          <Image src={Logo} size="tiny" style={{ marginLeft: "150px" }} />
         </Link>
         <Menu.Item>VA</Menu.Item>
         <Link to={"/conv"}>
