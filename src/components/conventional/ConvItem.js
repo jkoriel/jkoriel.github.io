@@ -5,13 +5,24 @@ function addDays(date, days) {
   if (date.slice(0, 4) < 2018) {
     return "";
   } else {
-    var result = new Date(date);
+    let result = new Date(date);
     result.setDate(result.getDate() + days + 1);
     return new Intl.DateTimeFormat("en-US").format(result);
   }
 }
 
-const ConvItem = ({ name, days, label, value, handleChange }) => {
+function calcWorkingDays(fromDate, days) {
+  var count = 0;
+  while (count <= days) {
+    fromDate.setDate(fromDate.getDate() + 1);
+    if (fromDate.getDay() !== 0 && fromDate.getDay() !== 6)
+      // Skip weekends
+      count++;
+  }
+  return new Intl.DateTimeFormat("en-US").format(fromDate);
+}
+
+const ConvItem = ({ name, days, label, value, handleChange, text }) => {
   return (
     <Grid.Row>
       {console.log("conv item value", value)}
@@ -20,6 +31,7 @@ const ConvItem = ({ name, days, label, value, handleChange }) => {
         <label>{label}</label>
       </Grid.Column>
       <Grid.Column width="4">
+        <p>{text}</p> <Divider />
         <Form.Field>
           <Input
             style={{ width: "165px" }}
@@ -40,6 +52,8 @@ const ConvItem = ({ name, days, label, value, handleChange }) => {
               <div>
                 <Icon fitted name="long arrow alternate left" /> Input a Date
               </div>
+            ) : name === "voe" ? (
+              calcWorkingDays(new Date(value), days)
             ) : (
               addDays(value, days)
             )}

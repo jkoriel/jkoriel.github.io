@@ -12,7 +12,7 @@ class TopNav extends Component {
         </Link>
         <Menu.Item>VA</Menu.Item>
         <Link to={"/conv"}>
-          <Menu.Item>Conventional</Menu.Item>
+          <Menu.Item style={{ marginTop: "20px" }}>Conventional</Menu.Item>
         </Link>
         <Menu.Item>Conventional Jumbo</Menu.Item>
       </Menu>
