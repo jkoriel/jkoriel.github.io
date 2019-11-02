@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Input, Form, Divider, Icon } from "semantic-ui-react";
+import { Grid, Input, Form, Divider, Icon, Message } from "semantic-ui-react";
 
 function addDays(date, days) {
   if (date.slice(0, 4) < 2018) {
@@ -31,9 +31,10 @@ const ConvItem = ({ name, days, label, value, handleChange, text }) => {
         <label>{label}</label>
       </Grid.Column>
       <Grid.Column width="4">
-        <p>{text}</p> <Divider />
+        <p className="labels">{text}</p> <Divider />
         <Form.Field>
           <Input
+            size="mini"
             style={{ width: "165px" }}
             type="date"
             name={name}
@@ -47,17 +48,16 @@ const ConvItem = ({ name, days, label, value, handleChange, text }) => {
       ) : (
         <Grid.Column width="3">
           <p>Plus {days} days</p> <Divider />
-          <p>
-            {!value ? (
-              <div>
-                <Icon fitted name="long arrow alternate left" /> Input a Date
-              </div>
-            ) : name === "voe" ? (
-              calcWorkingDays(new Date(value), days)
-            ) : (
-              addDays(value, days)
-            )}
-          </p>
+          {!value ? (
+            <Message size="mini">
+              <Icon name="long arrow alternate left" size="big" />
+              Input a Date
+            </Message>
+          ) : name === "voe" ? (
+            calcWorkingDays(new Date(value), days)
+          ) : (
+            addDays(value, days)
+          )}
         </Grid.Column>
       )}
       <Grid.Column width="2"></Grid.Column>
