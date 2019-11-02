@@ -24,10 +24,10 @@ function calcWorkingDays(fromDate, days) {
 
 const ConvItem = ({ name, days, label, value, handleChange, text }) => {
   return (
-    <Grid.Row>
+    <Grid.Row textAlign="center">
       {console.log("conv item value", value)}
       {console.log("conv item name", name)}
-      <Grid.Column width="3">
+      <Grid.Column className="first-col" width="3">
         <label>{label}</label>
       </Grid.Column>
       <Grid.Column width="4">
@@ -35,7 +35,7 @@ const ConvItem = ({ name, days, label, value, handleChange, text }) => {
         <Form.Field>
           <Input
             size="mini"
-            style={{ width: "165px" }}
+            style={{ width: "140px" }}
             type="date"
             name={name}
             onChange={handleChange}
@@ -46,7 +46,7 @@ const ConvItem = ({ name, days, label, value, handleChange, text }) => {
       {name === "closingDate" ? (
         ""
       ) : (
-        <Grid.Column width="3">
+        <Grid.Column className="result" width="3">
           <p>Plus {days} days</p> <Divider />
           {!value ? (
             <Message size="mini">
