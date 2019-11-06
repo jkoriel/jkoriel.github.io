@@ -1,5 +1,11 @@
 export const fields = [
   {
+    id: 1,
+    name: "closingDate",
+    label: "Closing Date",
+    text: "Enter Closing Date"
+  },
+  {
     id: 2,
     name: "borrowerPaystubs",
     label: "Borrower Paystubs",

@@ -1,11 +1,22 @@
 import React from "react";
-import { Container, Grid, Header, Form, Input } from "semantic-ui-react";
+import { Container, Grid, Header, Button } from "semantic-ui-react";
 import ConvItem from "./ConvItem";
 import { fields } from "./ConvFields";
 
 class Conv extends React.Component {
   state = {
-    closingDate: ""
+    closingDate: "",
+    borrowerPaystubs: "",
+    les: "",
+    creditReport: "",
+    bankStatement: "",
+    appraisal: "",
+    titleCommitment: "",
+    voe: "",
+    thirdPartyVoe: "",
+    selfEmployedVoe: "",
+    voi: "",
+    addDays: ""
   };
 
   handleChange = e => {
@@ -13,26 +24,41 @@ class Conv extends React.Component {
     console.log("handle change", e.target.name, e.target.value);
   };
 
+  addDays(date, days) {
+    if (date.slice(0, 4) < 2018) {
+      return "";
+    } else {
+      let result = new Date(date);
+      result.setDate(result.getDate() + days + 1);
+      return new Intl.DateTimeFormat("en-US").format(result);
+    }
+  }
+
+  addBusinessDays(fromDate, days) {
+    var count = 0;
+    while (count <= days) {
+      fromDate.setDate(fromDate.getDate() + 1);
+      if (fromDate.getDay() !== 0 && fromDate.getDay() !== 6) count++;
+    }
+
+    return new Intl.DateTimeFormat("en-US").format(fromDate);
+  }
+
+  compareDates(docDate, days, closingDate) {
+    let updatedDocDate = new Date(docDate);
+    updatedDocDate.setDate(updatedDocDate.getDate() + days + 1);
+    if (new Date(closingDate).getTime() < updatedDocDate.getTime()) {
+      return true;
+    } else return false;
+  }
+
   render() {
     return (
       <Container>
-        <Header as="h1">
-          Conventional Mortgage Date Calculator by Joe Smooth and Hackerman E
-        </Header>
+        <Header as="h1">Conventional Mortgage Date Calculator</Header>
+        <Button>Generate Comment</Button>
+        <Button>Clear</Button>
         <Grid celled>
-          <Grid.Row>
-            <Grid.Column width="3">
-              <label>Closing Date</label>
-            </Grid.Column>
-            <Form.Field>
-              <Input
-                type="date"
-                name="closingDate"
-                onChange={this.handleChange}
-                value={this.state.closingDate}
-              />
-            </Form.Field>
-          </Grid.Row>
           {fields.map(({ name, days, label, id, text }) => (
             <ConvItem
               key={id}
@@ -40,7 +66,11 @@ class Conv extends React.Component {
               name={name}
               days={days}
               label={label}
-              closingDate={this.state.closingDate}
+              value={this.state}
+              handleChange={this.handleChange}
+              addDays={this.addDays}
+              addBusinessDays={this.addBusinessDays}
+              compareDates={this.compareDates}
             />
           ))}
         </Grid>
