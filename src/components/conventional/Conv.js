@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Grid, Header, Button } from "semantic-ui-react";
 import ConvItem from "./ConvItem";
 import { fields } from "./ConvFields";
+import ConvComment from "./ConvComment";
 
 class Conv extends React.Component {
   state = {
@@ -52,12 +53,29 @@ class Conv extends React.Component {
     } else return false;
   }
 
+  resetForm = () => {
+    this.setState({
+      ...this.state,
+      closingDate: "",
+      borrowerPaystubs: "",
+      les: "",
+      creditReport: "",
+      bankStatement: "",
+      appraisal: "",
+      titleCommitment: "",
+      voe: "",
+      thirdPartyVoe: "",
+      selfEmployedVoe: "",
+      voi: ""
+    });
+  };
+
   render() {
     return (
       <Container>
         <Header as="h1">Conventional Mortgage Date Calculator</Header>
-        <Button>Generate Comment</Button>
-        <Button>Clear</Button>
+        <ConvComment value={this.state} />
+        <Button onClick={this.resetForm}>Clear</Button>
         <Grid celled>
           {fields.map(({ name, days, label, id, text }) => (
             <ConvItem
