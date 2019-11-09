@@ -6,14 +6,26 @@ import Footer from "./Footer";
 const Homepage = () => (
   <div style={{ backgroundColor: "#0C2136" }}>
     <Container style={{ marginLeft: "25px", marginRight: "25px" }}>
-      <Header inverted as="h1" style={{ padding: "25px", textAlign: "center" }}>
+      <Header
+        inverted
+        as="h1"
+        style={{
+          padding: "25px",
+          textAlign: "center",
+          fontFamily: "Gotham Narrow,Arial,sans-serif"
+        }}
+      >
         USAA Mortgage Date Calculator
       </Header>
       <Link to={"/va"}>
         <div style={{ padding: "40px" }}>
           <Card style={{ padding: "10px" }}>
             <Card.Content>
-              <Card.Header>VA Mortgage Date Calculator</Card.Header>
+              <Card.Header
+                style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
+              >
+                VA Mortgage Date Calculator
+              </Card.Header>
             </Card.Content>
           </Card>
         </div>
@@ -22,7 +34,11 @@ const Homepage = () => (
         <div style={{ marginLeft: "40px" }}>
           <Card style={{ padding: "10px" }}>
             <Card.Content>
-              <Card.Header>Conventional Mortgage Date Calculator</Card.Header>
+              <Card.Header
+                style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
+              >
+                Conventional Mortgage Date Calculator
+              </Card.Header>
             </Card.Content>
           </Card>
         </div>
@@ -31,7 +47,9 @@ const Homepage = () => (
         <div style={{ padding: "40px" }}>
           <Card style={{ padding: "10px" }}>
             <Card.Content>
-              <Card.Header>
+              <Card.Header
+                style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
+              >
                 Conventional Jumbo Mortgage Date Calculator
               </Card.Header>
             </Card.Content>

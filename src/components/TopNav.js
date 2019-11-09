@@ -6,7 +6,15 @@ import Logo from "./usaa.jpg";
 class TopNav extends Component {
   render() {
     return (
-      <Menu compact fluid inverted style={{ backgroundColor: "#0C2136" }}>
+      <Menu
+        compact
+        fluid
+        inverted
+        style={{
+          backgroundColor: "rgb(14, 46, 73)",
+          fontFamily: "Gotham Narrow,Arial,sans-serif"
+        }}
+      >
         <Link to={"/"}>
           <Image src={Logo} size="tiny" style={{ marginLeft: "150px" }} />
         </Link>

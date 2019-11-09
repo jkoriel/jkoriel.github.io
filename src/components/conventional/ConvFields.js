@@ -22,14 +22,14 @@ export const fields = [
   {
     id: 4,
     name: "les",
-    label: "Leave and Earnings Statement",
+    label: "LES",
     days: 90,
     text: "Pay Period Ending"
   },
   {
     id: 5,
     name: "les2",
-    label: "Co-Borrower Leave and Earnings Statement",
+    label: "Co-Borrower LES",
     days: 90,
     text: "Pay Period Ending"
   },
@@ -78,56 +78,56 @@ export const fields = [
   {
     id: 12,
     name: "voe",
-    label: "Verbal Verification of Employment",
+    label: "VOE",
     days: 10,
     text: "Effective Date"
   },
   {
     id: 13,
     name: "voe2",
-    label: "Co-Borrower Verbal Verification of Employment",
+    label: "Co-Borrower VOE",
     days: 10,
     text: "Effective Date"
   },
   {
     id: 14,
     name: "thirdPartyVoe",
-    label: "Third Party Verification of Employement",
+    label: "Third Party VOE",
     days: 35,
     text: "As of Date"
   },
   {
     id: 15,
     name: "thirdPartyVoe2",
-    label: "Co-Borrower Third Party Verification of Employement",
+    label: "Co-Borrower Third Party VOE",
     days: 35,
     text: "As of Date"
   },
   {
     id: 16,
     name: "selfEmployedVoe",
-    label: "Self Employed Verification of Employment",
+    label: "Self Employed VOE",
     days: 120,
     text: "Effective Date"
   },
   {
     id: 17,
     name: "selfEmployedVoe2",
-    label: "Co-Borrower Self Employed Verification of Employment",
+    label: "Co-Borrower Self Employed VOE",
     days: 120,
     text: "Effective Date"
   },
   {
     id: 18,
     name: "voi",
-    label: "Verification of Income",
+    label: "VOI",
     days: 120,
     text: "Effective Date"
   },
   {
     id: 19,
     name: "voi2",
-    label: "Co-Borrower Verification of Income",
+    label: "Co-Borrower VOI",
     days: 120,
     text: "Effective Date"
   }

@@ -3,12 +3,7 @@ import { Input, Form, Segment, Icon, Message, Table } from "semantic-ui-react";
 
 const ConvItem = props => {
   let bkgnd = "";
-  console.log(
-    props.value[props.name],
-    props.name,
-    props.value.closingDate,
-    props.days
-  );
+
   props.value[props.name] === "" || props.name === "closingDate"
     ? (bkgnd = "white")
     : props.compareDates(
@@ -21,13 +16,16 @@ const ConvItem = props => {
 
   return (
     <Table.Row>
-      <Table.Cell collapsing>{props.label}</Table.Cell>
-      <Table.Cell>
+      <Table.Cell width="2" textAlign="center">
+        {props.label}
+      </Table.Cell>
+      <Table.Cell width="1" collapsing>
         <Form.Field>
           <Input
+            widths="equal"
             size="mini"
-            style={{ width: "165px" }}
             type="date"
+            style={{ marginLeft: "35px", marginTop: "7px" }}
             label={props.text}
             name={props.name}
             onChange={props.handleChange}
@@ -35,9 +33,9 @@ const ConvItem = props => {
           />
         </Form.Field>
       </Table.Cell>
-      <Table.Cell>
+      <Table.Cell collapsing width="1">
         {props.days ? (
-          <Segment compact size="mini">
+          <Segment size="mini" textAlign="center">
             Plus {props.days} Days
           </Segment>
         ) : (
@@ -45,16 +43,28 @@ const ConvItem = props => {
         )}
       </Table.Cell>
       {props.name === "closingDate" ? (
-        ""
+        <Table.Cell
+          width="1"
+          style={{
+            backgroundColor: " white",
+            fontFamily: "Gotham Narrow,Arial,sans-serif"
+          }}
+        />
       ) : (
-        <Table.Cell style={{ backgroundColor: `${bkgnd}` }}>
+        <Table.Cell
+          width="1"
+          style={{
+            backgroundColor: `${bkgnd}`,
+            fontFamily: "Gotham Narrow,Arial,sans-serif"
+          }}
+        >
           {!props.value[props.name] ? (
             <Message size="mini">
               <Icon name="long arrow alternate left" size="big" />
               Input a Date
             </Message>
-          ) : props.name === "voe" ? (
-            props.addBusinessDays(new Date(props.value[props.name]), props.days)
+          ) : props.name === "voe" || props.name === "voe2" ? (
+            props.addBusinessDays(props.value[props.name], props.days)
           ) : (
             props.addDays(props.value[props.name], props.days)
           )}
