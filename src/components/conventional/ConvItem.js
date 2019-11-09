@@ -1,67 +1,76 @@
 import React from "react";
-import { Grid, Input, Form, Divider, Icon, Message } from "semantic-ui-react";
+import { Input, Form, Segment, Icon, Message, Table } from "semantic-ui-react";
 
-function addDays(date, days) {
-  if (date.slice(0, 4) < 2018) {
-    return "";
-  } else {
-    let result = new Date(date);
-    result.setDate(result.getDate() + days + 1);
-    return new Intl.DateTimeFormat("en-US").format(result);
-  }
-}
+const ConvItem = props => {
+  let bkgnd = "";
 
-function calcWorkingDays(fromDate, days) {
-  var count = 0;
-  while (count <= days) {
-    fromDate.setDate(fromDate.getDate() + 1);
-    if (fromDate.getDay() !== 0 && fromDate.getDay() !== 6)
-      // Skip weekends
-      count++;
-  }
-  return new Intl.DateTimeFormat("en-US").format(fromDate);
-}
+  props.value[props.name] === "" || props.name === "closingDate"
+    ? (bkgnd = "white")
+    : props.compareDates(
+        props.value[props.name],
+        props.days,
+        props.value.closingDate
+      )
+    ? (bkgnd = "rgba(0, 255, 0, 0.6)")
+    : (bkgnd = "rgba(255, 0, 0, 0.6)");
 
-const ConvItem = ({ name, days, label, value, handleChange, text }) => {
   return (
-    <Grid.Row textAlign="center">
-      {console.log("conv item value", value)}
-      {console.log("conv item name", name)}
-      <Grid.Column className="first-col" width="3">
-        <label>{label}</label>
-      </Grid.Column>
-      <Grid.Column width="4">
-        <p className="labels">{text}</p> <Divider />
+    <Table.Row>
+      <Table.Cell width="2" textAlign="center">
+        {props.label}
+      </Table.Cell>
+      <Table.Cell width="1" collapsing>
         <Form.Field>
           <Input
+            widths="equal"
             size="mini"
-            style={{ width: "140px" }}
             type="date"
-            name={name}
-            onChange={handleChange}
-            value={value}
+            style={{ marginLeft: "35px", marginTop: "7px" }}
+            label={props.text}
+            name={props.name}
+            onChange={props.handleChange}
+            value={props.value[props.name]}
           />
         </Form.Field>
-      </Grid.Column>
-      {name === "closingDate" ? (
-        ""
+      </Table.Cell>
+      <Table.Cell collapsing width="1">
+        {props.days ? (
+          <Segment size="mini" textAlign="center">
+            Plus {props.days} Days
+          </Segment>
+        ) : (
+          ""
+        )}
+      </Table.Cell>
+      {props.name === "closingDate" ? (
+        <Table.Cell
+          width="1"
+          style={{
+            backgroundColor: " white",
+            fontFamily: "Gotham Narrow,Arial,sans-serif"
+          }}
+        />
       ) : (
-        <Grid.Column className="result" width="3">
-          <p>Plus {days} days</p> <Divider />
-          {!value ? (
+        <Table.Cell
+          width="1"
+          style={{
+            backgroundColor: `${bkgnd}`,
+            fontFamily: "Gotham Narrow,Arial,sans-serif"
+          }}
+        >
+          {!props.value[props.name] ? (
             <Message size="mini">
               <Icon name="long arrow alternate left" size="big" />
               Input a Date
             </Message>
-          ) : name === "voe" ? (
-            calcWorkingDays(new Date(value), days)
+          ) : props.name === "voe" || props.name === "voe2" ? (
+            props.addBusinessDays(props.value[props.name], props.days)
           ) : (
-            addDays(value, days)
+            props.addDays(props.value[props.name], props.days)
           )}
-        </Grid.Column>
+        </Table.Cell>
       )}
-      <Grid.Column width="2"></Grid.Column>
-    </Grid.Row>
+    </Table.Row>
   );
 };
 
