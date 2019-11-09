@@ -1,8 +1,14 @@
 import React from "react";
-import { Grid, Input, Form, Divider, Icon, Message } from "semantic-ui-react";
+import { Input, Form, Segment, Icon, Message, Table } from "semantic-ui-react";
 
 const ConvItem = props => {
   let bkgnd = "";
+  console.log(
+    props.value[props.name],
+    props.name,
+    props.value.closingDate,
+    props.days
+  );
   props.value[props.name] === "" || props.name === "closingDate"
     ? (bkgnd = "white")
     : props.compareDates(
@@ -10,32 +16,38 @@ const ConvItem = props => {
         props.days,
         props.value.closingDate
       )
-    ? (bkgnd = "green")
-    : (bkgnd = "red");
+    ? (bkgnd = "rgba(0, 255, 0, 0.6)")
+    : (bkgnd = "rgba(255, 0, 0, 0.6)");
 
   return (
-    <Grid.Row>
-      <Grid.Column width="3">
-        <label>{props.label}</label>
-      </Grid.Column>
-      <Grid.Column width="4">
-        <p className="labels">{props.text}</p> <Divider />
+    <Table.Row>
+      <Table.Cell collapsing>{props.label}</Table.Cell>
+      <Table.Cell>
         <Form.Field>
           <Input
             size="mini"
             style={{ width: "165px" }}
             type="date"
+            label={props.text}
             name={props.name}
             onChange={props.handleChange}
             value={props.value[props.name]}
           />
         </Form.Field>
-      </Grid.Column>
+      </Table.Cell>
+      <Table.Cell>
+        {props.days ? (
+          <Segment compact size="mini">
+            Plus {props.days} Days
+          </Segment>
+        ) : (
+          ""
+        )}
+      </Table.Cell>
       {props.name === "closingDate" ? (
         ""
       ) : (
-        <Grid.Column width="3" style={{ backgroundColor: `${bkgnd}` }}>
-          <p>Plus {props.days} days</p> <Divider />
+        <Table.Cell style={{ backgroundColor: `${bkgnd}` }}>
           {!props.value[props.name] ? (
             <Message size="mini">
               <Icon name="long arrow alternate left" size="big" />
@@ -46,9 +58,9 @@ const ConvItem = props => {
           ) : (
             props.addDays(props.value[props.name], props.days)
           )}
-        </Grid.Column>
+        </Table.Cell>
       )}
-    </Grid.Row>
+    </Table.Row>
   );
 };
 
