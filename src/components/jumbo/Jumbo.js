@@ -32,34 +32,6 @@ class Jumbo extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addDays(date, days) {
-    if (date.slice(0, 4) < 2018) {
-      return "";
-    } else {
-      let result = new Date(date);
-      result.setDate(result.getDate() + days + 1);
-      return new Intl.DateTimeFormat("en-US").format(result);
-    }
-  }
-
-  addBusinessDays(date, days) {
-    var count = 0;
-    let result = new Date(date);
-    while (count <= days) {
-      result.setDate(result.getDate() + 1);
-      if (result.getDay() !== 0 && result.getDay() !== 6) count++;
-    }
-    return new Intl.DateTimeFormat("en-US").format(result);
-  }
-
-  compareDates(docDate, days, closingDate) {
-    let updatedDocDate = new Date(docDate);
-    updatedDocDate.setDate(updatedDocDate.getDate() + days + 1);
-    if (new Date(closingDate).getTime() < updatedDocDate.getTime()) {
-      return true;
-    } else return false;
-  }
-
   resetForm = () => {
     this.setState({
       ...this.state,
@@ -103,12 +75,7 @@ class Jumbo extends React.Component {
         >
           Conventional Jumbo Mortgage Date Calculator
         </Header>
-        <Comment
-          value={this.state}
-          addDays={this.addDays}
-          addBusinessDays={this.addBusinessDays}
-          fields={fields}
-        />
+        <Comment value={this.state} fields={fields} />
         <Button
           inverted
           size="huge"
@@ -138,9 +105,6 @@ class Jumbo extends React.Component {
                 label={label}
                 value={this.state}
                 handleChange={this.handleChange}
-                addDays={this.addDays}
-                addBusinessDays={this.addBusinessDays}
-                compareDates={this.compareDates}
               />
             ))}
           </Table.Body>

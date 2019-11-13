@@ -1,16 +1,13 @@
 import React from "react";
 import { Input, Form, Segment, Table } from "semantic-ui-react";
+import { addDays, addBusinessDays, compareDates } from "./HelperFunctions";
 
 const ConvItem = props => {
   let bkgnd = "";
 
   props.value[props.name] === "" || props.name === "closingDate"
     ? (bkgnd = "white")
-    : props.compareDates(
-        props.value[props.name],
-        props.days,
-        props.value.closingDate
-      )
+    : compareDates(props.value[props.name], props.days, props.value.closingDate)
     ? (bkgnd = "rgba(0, 255, 0, 0.6)")
     : (bkgnd = "rgba(255, 0, 0, 0.6)");
 
@@ -65,8 +62,8 @@ const ConvItem = props => {
           {!props.value[props.name]
             ? ""
             : props.name === "voe" || props.name === "voe2"
-            ? props.addBusinessDays(props.value[props.name], props.days)
-            : props.addDays(props.value[props.name], props.days)}
+            ? addBusinessDays(props.value[props.name], props.days)
+            : addDays(props.value[props.name], props.days)}
         </Table.Cell>
       )}
     </Table.Row>
