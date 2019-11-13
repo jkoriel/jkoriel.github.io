@@ -19,12 +19,11 @@ class Va extends React.Component {
     titleCommitment: "",
     voe: "",
     voe2: "",
-    thirdPartyVoe: "",
-    thirdPartyVoe2: "",
-    selfEmployedVoe: "",
-    selfEmployedVoe2: "",
     voi: "",
     voi2: "",
+    termite: "",
+    water: "",
+    dvi: "",
     addDays: ""
   };
 
@@ -76,12 +75,11 @@ class Va extends React.Component {
       titleCommitment: "",
       voe: "",
       voe2: "",
-      thirdPartyVoe: "",
-      thirdPartyVoe2: "",
-      selfEmployedVoe: "",
-      selfEmployedVoe2: "",
       voi: "",
       voi2: "",
+      termite: "",
+      water: "",
+      dvi: "",
       addDays: ""
     });
   };
@@ -89,7 +87,10 @@ class Va extends React.Component {
   render() {
     return (
       <Container
-        style={{ width: "70%", fontFamily: "Gotham Narrow,Arial,sans-serif" }}
+        style={{
+          width: "70%",
+          fontFamily: "Gotham Narrow,Arial,sans-serif"
+        }}
       >
         <Header
           style={{
@@ -107,6 +108,7 @@ class Va extends React.Component {
           value={this.state}
           addDays={this.addDays}
           addBusinessDays={this.addBusinessDays}
+          fields={fields}
         />
         <Button
           onClick={this.resetForm}

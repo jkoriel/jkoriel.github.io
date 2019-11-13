@@ -34,7 +34,11 @@ const ConvItem = props => {
         </Form.Field>
       </Table.Cell>
       <Table.Cell collapsing width="1">
-        {props.days ? (
+        {props.days === 0 ? (
+          <Segment size="mini" textAlign="center">
+            Appraisal Expiration Date
+          </Segment>
+        ) : props.days ? (
           <Segment size="mini" textAlign="center">
             Plus {props.days} Days
           </Segment>

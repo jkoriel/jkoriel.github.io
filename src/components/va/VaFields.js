@@ -65,7 +65,8 @@ export const fields = [
     id: 10,
     name: "appraisal",
     label: "Appraisal",
-    text: "Exp date from NOV doc"
+    days: 0,
+    text: "Exp date from NOV"
   },
   {
     id: 11,
@@ -117,7 +118,7 @@ export const fields = [
     text: "Effective Date"
   },
   {
-    id: 17,
+    id: 18,
     name: "dvi",
     label: "DVI / 2055",
     days: 120,

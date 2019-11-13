@@ -12,7 +12,10 @@ class App extends React.Component {
     return (
       <Router>
         <TopNav />
-        <Container fluid style={{ backgroundColor: "rgb(12, 29, 46)" }}>
+        <Container
+          fluid
+          style={{ backgroundColor: "rgb(12, 29, 46)", paddingBottom: "100px" }}
+        >
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/conv" component={Conv} />

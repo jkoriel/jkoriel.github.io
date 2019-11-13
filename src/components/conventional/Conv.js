@@ -107,6 +107,7 @@ class Conv extends React.Component {
           value={this.state}
           addDays={this.addDays}
           addBusinessDays={this.addBusinessDays}
+          fields={fields}
         />
         <Button
           onClick={this.resetForm}

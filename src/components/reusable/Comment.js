@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Modal, List } from "semantic-ui-react";
-import { fields } from "../conventional/ConvFields";
 import CommentItem from "./CommentItem";
 
 class ConvComment extends React.Component {
@@ -16,7 +15,7 @@ class ConvComment extends React.Component {
         <Modal.Content>
           <Modal.Description>
             <List>
-              {fields.map(({ name, days, id, label }) => (
+              {this.props.fields.map(({ name, days, id, label }) => (
                 <CommentItem
                   key={id}
                   name={name}
