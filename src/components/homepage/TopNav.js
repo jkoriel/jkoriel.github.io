@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Image, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Logo from "./usaa.jpg";
+import Logo from "../../images/usaa.jpg";
 
 class TopNav extends Component {
   render() {

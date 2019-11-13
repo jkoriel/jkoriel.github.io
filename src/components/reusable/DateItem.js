@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Form, Segment, Icon, Message, Table } from "semantic-ui-react";
+import { Input, Form, Segment, Table } from "semantic-ui-react";
 
 const ConvItem = props => {
   let bkgnd = "";
@@ -58,16 +58,11 @@ const ConvItem = props => {
             fontFamily: "Gotham Narrow,Arial,sans-serif"
           }}
         >
-          {!props.value[props.name] ? (
-            <Message size="mini">
-              <Icon name="long arrow alternate left" size="big" />
-              Input a Date
-            </Message>
-          ) : props.name === "voe" || props.name === "voe2" ? (
-            props.addBusinessDays(props.value[props.name], props.days)
-          ) : (
-            props.addDays(props.value[props.name], props.days)
-          )}
+          {!props.value[props.name]
+            ? ""
+            : props.name === "voe" || props.name === "voe2"
+            ? props.addBusinessDays(props.value[props.name], props.days)
+            : props.addDays(props.value[props.name], props.days)}
         </Table.Cell>
       )}
     </Table.Row>

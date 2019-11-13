@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Table, Header, Button } from "semantic-ui-react";
-import ConvItem from "./ConvItem";
+import DateItem from "../reusable/DateItem";
 import { fields } from "./ConvFields";
-import ConvComment from "./ConvComment";
+import Comment from "../reusable/Comment";
 
 class Conv extends React.Component {
   state = {
@@ -86,23 +86,6 @@ class Conv extends React.Component {
     });
   };
 
-  resetForm = () => {
-    this.setState({
-      ...this.state,
-      closingDate: "",
-      borrowerPaystubs: "",
-      les: "",
-      creditReport: "",
-      bankStatement: "",
-      appraisal: "",
-      titleCommitment: "",
-      voe: "",
-      thirdPartyVoe: "",
-      selfEmployedVoe: "",
-      voi: ""
-    });
-  };
-
   render() {
     return (
       <Container
@@ -120,7 +103,7 @@ class Conv extends React.Component {
         >
           Conventional Mortgage Date Calculator
         </Header>
-        <ConvComment
+        <Comment
           value={this.state}
           addDays={this.addDays}
           addBusinessDays={this.addBusinessDays}
@@ -139,7 +122,7 @@ class Conv extends React.Component {
             }}
           >
             {fields.map(({ name, days, label, id, text }) => (
-              <ConvItem
+              <DateItem
                 key={id}
                 text={text}
                 name={name}
