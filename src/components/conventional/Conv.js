@@ -110,7 +110,14 @@ class Conv extends React.Component {
           fields={fields}
         />
         <Button
-          onClick={this.resetForm}
+          inverted
+          size="huge"
+          onClick={e => {
+            if (
+              window.confirm("Are you sure you want to reset the calculator?")
+            )
+              this.resetForm(e);
+          }}
           style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
         >
           Clear

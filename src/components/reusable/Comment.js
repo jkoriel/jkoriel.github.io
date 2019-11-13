@@ -7,7 +7,11 @@ class ConvComment extends React.Component {
     return (
       <Modal
         style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
-        trigger={<Button>Generate Comment</Button>}
+        trigger={
+          <Button inverted size="huge">
+            Generate Comment
+          </Button>
+        }
       >
         <Modal.Header style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}>
           Copy Comment into Cadence

@@ -12,3 +12,7 @@
   font-size: 0.9em;
   margin: 0 1rem;
 }
+
+body {
+  background-color: rgb(12, 29, 46);
+}
