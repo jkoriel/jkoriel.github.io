@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Form, Segment, Table } from "semantic-ui-react";
+import { Form, Segment, Table } from "semantic-ui-react";
 import { addDays, addBusinessDays, compareDates } from "./HelperFunctions";
 
 const ConvItem = props => {
@@ -18,16 +18,18 @@ const ConvItem = props => {
       </Table.Cell>
       <Table.Cell width="1" collapsing>
         <Form.Field>
-          <Input
-            widths="equal"
-            size="mini"
-            type="date"
-            style={{ marginLeft: "35px", marginTop: "7px" }}
-            label={props.text}
-            name={props.name}
-            onChange={props.handleChange}
-            value={props.value[props.name]}
-          />
+          <div className="ui input">
+            <input
+              widths="equal"
+              size="mini"
+              type="date"
+              style={{ marginLeft: "35px", marginTop: "7px" }}
+              label={props.text}
+              name={props.name}
+              onChange={props.handleChange}
+              value={props.value[props.name]}
+            ></input>
+          </div>
         </Form.Field>
       </Table.Cell>
       <Table.Cell collapsing width="1">
