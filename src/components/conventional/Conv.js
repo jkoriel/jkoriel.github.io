@@ -69,7 +69,7 @@ class Conv extends React.Component {
             paddingTop: "25px",
             fontSize: "24pt",
             fontFamily: "Gotham Narrow,Arial,sans-serif",
-            marginLeft: "290px"
+            textAlign: "center"
           }}
           as="h1"
         >

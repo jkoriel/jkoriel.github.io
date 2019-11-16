@@ -21,6 +21,11 @@ class TopNav extends Component {
         <Link to={"/va"}>
           <Menu.Item style={{ marginTop: "20px" }}>VA</Menu.Item>
         </Link>
+        <Link to={"/vanewconst"}>
+          <Menu.Item style={{ marginTop: "20px" }}>
+            VA New Construction
+          </Menu.Item>
+        </Link>
         <Link to={"/conv"}>
           <Menu.Item style={{ marginTop: "20px" }}>Conventional</Menu.Item>
         </Link>

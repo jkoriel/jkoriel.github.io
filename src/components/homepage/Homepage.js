@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Container, Card } from "semantic-ui-react";
+import { Header, Container, Card, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const Homepage = () => (
@@ -15,45 +15,78 @@ const Homepage = () => (
     >
       USAA Mortgage Date Calculator
     </Header>
-    <Link to={"/va"}>
-      <div style={{ padding: "40px" }}>
-        <Card style={{ padding: "10px" }}>
-          <Card.Content>
-            <Card.Header
-              style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
-            >
-              VA Mortgage Date Calculator
-            </Card.Header>
-          </Card.Content>
-        </Card>
-      </div>
-    </Link>
-    <Link to={"/conv"}>
-      <div style={{ marginLeft: "40px" }}>
-        <Card style={{ padding: "10px" }}>
-          <Card.Content>
-            <Card.Header
-              style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
-            >
-              Conventional Mortgage Date Calculator
-            </Card.Header>
-          </Card.Content>
-        </Card>
-      </div>
-    </Link>
-    <Link to={"/jumbo"}>
-      <div style={{ padding: "40px" }}>
-        <Card style={{ padding: "10px" }}>
-          <Card.Content>
-            <Card.Header
-              style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}
-            >
-              Conventional Jumbo Mortgage Date Calculator
-            </Card.Header>
-          </Card.Content>
-        </Card>
-      </div>
-    </Link>
+    <Grid columns={2}>
+      <Grid.Row>
+        <Grid.Column>
+          <Link to={"/conv"}>
+            <Container style={{ padding: "25px" }}>
+              <Card fluid style={{ padding: "50px" }}>
+                <Card.Content>
+                  <Card.Header
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "Gotham Narrow,Arial,sans-serif"
+                    }}
+                  >
+                    Conventional Mortgage Date Calculator
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Container>
+          </Link>
+          <Link to={"/jumbo"}>
+            <Container style={{ padding: "25px" }}>
+              <Card fluid style={{ padding: "50px" }}>
+                <Card.Content>
+                  <Card.Header
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "Gotham Narrow,Arial,sans-serif"
+                    }}
+                  >
+                    Conv Jumbo Mortgage Date Calculator
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Container>
+          </Link>
+        </Grid.Column>
+        <Grid.Column>
+          <Link to={"/va"}>
+            <Container style={{ padding: "25px" }}>
+              <Card fluid style={{ padding: "50px" }}>
+                <Card.Content>
+                  <Card.Header
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "Gotham Narrow,Arial,sans-serif"
+                    }}
+                  >
+                    VA Mortgage Date Calculator
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Container>
+          </Link>
+          <Link to={"/vanewconst"}>
+            <Container style={{ padding: "25px" }}>
+              <Card fluid style={{ padding: "50px" }}>
+                <Card.Content>
+                  <Card.Header
+                    style={{
+                      textAlign: "center",
+                      fontFamily: "Gotham Narrow,Arial,sans-serif"
+                    }}
+                  >
+                    VA New Construction Mortgage Date Calculator
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Container>
+          </Link>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   </Container>
 );
 export default Homepage;

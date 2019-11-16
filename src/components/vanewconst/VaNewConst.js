@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Table, Header, Button } from "semantic-ui-react";
 import DateItem from "../reusable/DateItem";
-import { fields } from "./VaFields";
+import { fields } from "./VaNewConstFields";
 import Comment from "../reusable/Comment";
 
-class Va extends React.Component {
+class VaNewConst extends React.Component {
   state = {
     closingDate: "",
     borrowerPaystubs: "",
@@ -23,7 +23,6 @@ class Va extends React.Component {
     voi2: "",
     termite: "",
     water: "",
-    dvi: "",
     addDays: ""
   };
 
@@ -51,7 +50,6 @@ class Va extends React.Component {
       voi2: "",
       termite: "",
       water: "",
-      dvi: "",
       addDays: ""
     });
   };
@@ -59,10 +57,7 @@ class Va extends React.Component {
   render() {
     return (
       <Container
-        style={{
-          width: "70%",
-          fontFamily: "Gotham Narrow,Arial,sans-serif"
-        }}
+        style={{ width: "70%", fontFamily: "Gotham Narrow,Arial,sans-serif" }}
       >
         <Header
           style={{
@@ -74,7 +69,7 @@ class Va extends React.Component {
           }}
           as="h1"
         >
-          VA Mortgage Date Calculator
+          Va New Construction Mortgage Date Calculator
         </Header>
         <Comment value={this.state} fields={fields} />
         <Button
@@ -115,4 +110,4 @@ class Va extends React.Component {
   }
 }
 
-export default Va;
+export default VaNewConst;
