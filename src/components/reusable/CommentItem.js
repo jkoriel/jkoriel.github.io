@@ -1,13 +1,14 @@
 import React from "react";
 import { List } from "semantic-ui-react";
+import { addBusinessDays, addDays } from "./HelperFunctions";
 
 const CommentItem = props => {
   const expirationDate =
     props.name === "closingDate" || !props.value[props.name]
       ? ""
       : props.name === "voe" || props.name === "voe2"
-      ? props.addBusinessDays(props.value[props.name], props.days)
-      : props.addDays(props.value[props.name], props.days);
+      ? addBusinessDays(props.value[props.name], props.days)
+      : addDays(props.value[props.name], props.days);
   const listItem =
     props.name === "closingDate" ? (
       ""
