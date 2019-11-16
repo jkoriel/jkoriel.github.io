@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Table, Header, Button } from "semantic-ui-react";
 import DateItem from "../reusable/DateItem";
-import { fields } from "./VaJumboFields";
+import { fields } from "./VaNewConstFields";
 import Comment from "../reusable/Comment";
 
-class VaJumbo extends React.Component {
+class VaNewConst extends React.Component {
   state = {
     closingDate: "",
     borrowerPaystubs: "",
@@ -19,12 +19,10 @@ class VaJumbo extends React.Component {
     titleCommitment: "",
     voe: "",
     voe2: "",
-    thirdPartyVoe: "",
-    thirdPartyVoe2: "",
-    selfEmployedVoe: "",
-    selfEmployedVoe2: "",
     voi: "",
     voi2: "",
+    termite: "",
+    water: "",
     addDays: ""
   };
 
@@ -48,12 +46,10 @@ class VaJumbo extends React.Component {
       titleCommitment: "",
       voe: "",
       voe2: "",
-      thirdPartyVoe: "",
-      thirdPartyVoe2: "",
-      selfEmployedVoe: "",
-      selfEmployedVoe2: "",
       voi: "",
       voi2: "",
+      termite: "",
+      water: "",
       addDays: ""
     });
   };
@@ -69,11 +65,11 @@ class VaJumbo extends React.Component {
             paddingTop: "25px",
             fontSize: "24pt",
             fontFamily: "Gotham Narrow,Arial,sans-serif",
-            marginLeft: "290px"
+            textAlign: "center"
           }}
           as="h1"
         >
-          Va Jumbo Mortgage Date Calculator
+          Va New Construction Mortgage Date Calculator
         </Header>
         <Comment value={this.state} fields={fields} />
         <Button
@@ -114,4 +110,4 @@ class VaJumbo extends React.Component {
   }
 }
 
-export default VaJumbo;
+export default VaNewConst;

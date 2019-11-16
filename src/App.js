@@ -5,7 +5,7 @@ import TopNav from "./components/homepage/TopNav";
 import Conv from "./components/conventional/Conv";
 import Va from "./components/va/Va";
 import Jumbo from "./components/jumbo/Jumbo";
-import VaJumbo from "./components/vajumbo/VaJumbo";
+import VaNewConst from "./components/vanewconst/VaNewConst";
 import { Container } from "semantic-ui-react";
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
             <Route path="/conv" component={Conv} />
             <Route path="/va" component={Va} />
             <Route path="/jumbo" component={Jumbo} />
-            <Route path="/vajumbo" component={VaJumbo} />
+            <Route path="/vanewconst" component={VaNewConst} />
           </Switch>
         </Container>
       </Router>

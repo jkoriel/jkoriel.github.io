@@ -68,7 +68,7 @@ const Homepage = () => (
               </Card>
             </Container>
           </Link>
-          <Link to={"/vajumbo"}>
+          <Link to={"/vanewconst"}>
             <Container style={{ padding: "25px" }}>
               <Card fluid style={{ padding: "50px" }}>
                 <Card.Content>
@@ -78,7 +78,7 @@ const Homepage = () => (
                       fontFamily: "Gotham Narrow,Arial,sans-serif"
                     }}
                   >
-                    VA Jumbo Mortgage Date Calculator
+                    VA New Construction Mortgage Date Calculator
                   </Card.Header>
                 </Card.Content>
               </Card>
