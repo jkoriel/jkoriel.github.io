@@ -11,7 +11,7 @@ class TopNav extends Component {
         fluid
         inverted
         style={{
-          backgroundColor: "rgb(14, 46, 73)",
+          backgroundColor: "#0D2F4C",
           fontFamily: "Gotham Narrow,Arial,sans-serif"
         }}
       >

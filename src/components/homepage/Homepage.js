@@ -28,7 +28,7 @@ const Homepage = () => (
                       fontFamily: "Gotham Narrow,Arial,sans-serif"
                     }}
                   >
-                    Conventional Mortgage Date Calculator
+                    Conventional Date Calculator
                   </Card.Header>
                 </Card.Content>
               </Card>
@@ -44,7 +44,7 @@ const Homepage = () => (
                       fontFamily: "Gotham Narrow,Arial,sans-serif"
                     }}
                   >
-                    Conv Jumbo Mortgage Date Calculator
+                    Conventional Jumbo Date Calculator
                   </Card.Header>
                 </Card.Content>
               </Card>
@@ -62,7 +62,7 @@ const Homepage = () => (
                       fontFamily: "Gotham Narrow,Arial,sans-serif"
                     }}
                   >
-                    VA Mortgage Date Calculator
+                    VA Date Calculator
                   </Card.Header>
                 </Card.Content>
               </Card>
@@ -78,7 +78,7 @@ const Homepage = () => (
                       fontFamily: "Gotham Narrow,Arial,sans-serif"
                     }}
                   >
-                    VA New Construction Mortgage Date Calculator
+                    VA New Construction Date Calculator
                   </Card.Header>
                 </Card.Content>
               </Card>

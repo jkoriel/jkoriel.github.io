@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.6",
+    "nodep-date-input-polyfill": "^5.2.0",
+    "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.4",
     "react-datepicker2": "^3.0.3",
