@@ -13,7 +13,7 @@ const ConvItem = props => {
 
   return (
     <Table.Row>
-      <Table.Cell width="2" textAlign="center">
+      <Table.Cell width="2" textAlign="center" style={{ fontWeight: "bold" }}>
         {props.label}
       </Table.Cell>
       <Table.Cell width="1" collapsing>
@@ -22,7 +22,11 @@ const ConvItem = props => {
             widths="equal"
             size="mini"
             type="date"
-            style={{ marginLeft: "35px", marginTop: "7px" }}
+            style={{
+              marginLeft: "35px",
+              marginTop: "10px",
+              fontWeight: "bold"
+            }}
             label={props.text}
             name={props.name}
             onChange={props.handleChange}
@@ -36,7 +40,11 @@ const ConvItem = props => {
             Appraisal Expiration Date
           </Segment>
         ) : props.days ? (
-          <Segment size="mini" textAlign="center">
+          <Segment
+            size="mini"
+            textAlign="center"
+            style={{ fontWeight: "bold" }}
+          >
             Plus {props.days} Days
           </Segment>
         ) : (
@@ -48,7 +56,8 @@ const ConvItem = props => {
           width="1"
           style={{
             backgroundColor: " white",
-            fontFamily: "Gotham Narrow,Arial,sans-serif"
+            fontFamily: "Gotham Narrow,Arial,sans-serif",
+            fontWeight: "bold"
           }}
         />
       ) : (
@@ -56,7 +65,8 @@ const ConvItem = props => {
           width="1"
           style={{
             backgroundColor: `${bkgnd}`,
-            fontFamily: "Gotham Narrow,Arial,sans-serif"
+            fontFamily: "Gotham Narrow,Arial,sans-serif",
+            fontWeight: "bold"
           }}
         >
           {!props.value[props.name]

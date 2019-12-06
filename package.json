@@ -7,6 +7,8 @@
     "nodep-date-input-polyfill": "^5.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
+    "react-app-polyfill": "^1.0.4",
+    "react-datepicker2": "^3.0.3",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
@@ -26,12 +28,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }

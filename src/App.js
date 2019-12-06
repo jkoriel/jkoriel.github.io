@@ -15,7 +15,7 @@ class App extends React.Component {
         <TopNav />
         <Container
           fluid
-          style={{ backgroundColor: "rgb(12, 29, 46)", paddingBottom: "100px" }}
+          style={{ backgroundColor: "#0F1E31", paddingBottom: "100px" }}
         >
           <Switch>
             <Route exact path="/" component={Homepage} />
