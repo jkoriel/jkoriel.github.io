@@ -2,6 +2,7 @@ import React from "react";
 import { List } from "semantic-ui-react";
 import { addBusinessDays, addDays } from "./HelperFunctions";
 
+// change this into a function, if statements not ternarys
 const CommentItem = props => {
   const expirationDate =
     props.name === "closingDate" || !props.value[props.name]
