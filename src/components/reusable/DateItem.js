@@ -1,15 +1,19 @@
 import React from "react";
 import { Input, Form, Segment, Table } from "semantic-ui-react";
-import { addDays, addBusinessDays, compareDates } from "./HelperFunctions";
+import {
+  expDateBackgroundColor,
+  compareDates,
+  expirationDateFunc
+} from "./HelperFunctions";
 
 const ConvItem = props => {
-  let bkgnd = "";
-
-  props.value[props.name] === "" || props.name === "closingDate"
-    ? (bkgnd = "white")
-    : compareDates(props.value[props.name], props.days, props.value.closingDate)
-    ? (bkgnd = "rgba(0, 255, 0, 0.6)")
-    : (bkgnd = "rgba(255, 0, 0, 0.6)");
+  let backgroundColor = expDateBackgroundColor(
+    props.name,
+    props.value[props.name],
+    props.days,
+    props.value.closingDate,
+    compareDates
+  );
 
   return (
     <Table.Row>
@@ -64,16 +68,12 @@ const ConvItem = props => {
         <Table.Cell
           width="1"
           style={{
-            backgroundColor: `${bkgnd}`,
+            backgroundColor: `${backgroundColor}`,
             fontFamily: "Gotham Narrow,Arial,sans-serif",
             fontWeight: "bold"
           }}
         >
-          {!props.value[props.name]
-            ? ""
-            : props.name === "voe" || props.name === "voe2"
-            ? addBusinessDays(props.value[props.name], props.days)
-            : addDays(props.value[props.name], props.days)}
+          {expirationDateFunc(props.name, props.value[props.name], props.days)}
         </Table.Cell>
       )}
     </Table.Row>

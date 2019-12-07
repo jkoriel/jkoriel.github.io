@@ -14,7 +14,7 @@ class ConvComment extends React.Component {
         }
       >
         <Modal.Header style={{ fontFamily: "Gotham Narrow,Arial,sans-serif" }}>
-          Copy Comment into Cadence
+          Copy Comment into Template
         </Modal.Header>
         <Modal.Content>
           <Modal.Description>
